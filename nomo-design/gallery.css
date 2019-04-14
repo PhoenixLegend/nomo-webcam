@@ -1,0 +1,25 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+	/*universal seting*/
+}
+.main_block {
+    position: relative;
+    width: 480px;
+    height: 360; 
+    border:2px black solid;
+}
+
+#img{
+    width: 250px;
+    height: 190px;
+}
+
+#return{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+}
