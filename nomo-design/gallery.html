@@ -5,16 +5,19 @@
     </head>
     <body>
         <script type="text/javascript" src="webcam.min.js"></script>
-        <div class="main_block">
+        <div class="bg">
+           <img src="bg.jpg" alt="" height="360" width="480"  >
+
            <div id="img"></div>
             <script>
                 var content = localStorage.getItem("value");
                 document.getElementById('img').innerHTML = 
-                            '<img src="'+content+'"/ height = "190" >';
+                            '<img src="'+content+'"/ height = "240" >';
+           
             </script>
             
-            <button id="return" onclick="window.location.href='index.html'">返回</button>
-        </div> 
-        
+            <img src="return.png" width="60px" id="return" onclick="window.location.href='index.html'"></button>
+     
+        </div>
     </body>
     </html>
