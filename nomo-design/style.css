@@ -57,7 +57,7 @@
     
     position: absolute; 
     top:77px;
-    left: 20%;
+    left: 100px;
     z-index: 2;
 }
 
@@ -65,7 +65,7 @@
 	
     position: absolute;
     top:85px;
-    left: 5%;
+    left: 100px;
 }
 
 #results{
