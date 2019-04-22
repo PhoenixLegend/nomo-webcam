@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>nomo-webcam</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <div class="bg">
+            <img src="bg.jpg" alt="" height="320" width="480"  >
+            
+            <div id="iso">
+                <img src="iso.png" width="40" >
+            </div>
+            
+            <div class="nail">
+                <img src="nail.png" height="20" id="nail1">
+                <img src="nail.png" height="20" id="nail2">
+            </div>
+
+            <div id="button">
+                <img src="button.png" height="50" value="Take Snapshot" onClick="take_snapshot()">
+                <script language="JavaScript">
+                    var data;
+                    //store the value
+                    function take_snapshot() {
+                        // take snapshot and get image data
+                        Webcam.snap( function(data_uri) {
+                            // display results in page
+                            data = data_uri;
+                            //alert(data);
+                            document.getElementById('results').innerHTML = 
+                            '<img src="'+data_uri+'"/ height = "30" >';
+                            } );
+                       
+                    }
+                   
+                </script>
+            </div>
+            <div id="results" onclick="set()" ></div>
+			<script type="text/javascript">
+				//location.href='gallery.html'
+                function set(){
+                    if (window.localStorage){
+                        //store the value
+                        localStorage.setItem("value",data);
+                        location.href = './gallery.html';
+                        
+                    }else{
+                        alert("not support");
+                    }
+                }
+            </script>
+            
+            <img src="cambox.png" width="255" id="cambound"></div>
+            
+            <div id="my_camera">
+                <!-- First, include the Webcam.js JavaScript Library -->
+	            <script type="text/javascript" src="webcam.min.js"></script>
+                <!-- Configure a few settings and attach camera -->
+            	<script language="JavaScript">
+	            	Webcam.set({
+		    	    width: 250,
+			        height: 190,
+			        image_format: 'jpeg',
+			        jpeg_quality: 90
+		        });
+		        Webcam.attach( '#my_camera' );
+	            </script>
+        </div>
+     
+        
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+    <head>
+    <title>nomo-webcam</title>
+    <link rel="stylesheet" href="gallery.css">
+    </head>
+    <body>
+        <script type="text/javascript" src="webcam.min.js"></script>
+        <script type="text/javascript" src="caman.full.min.js"></script>
+    
+        <div class="bg">
+           <img src="bg.jpg" id = "bg"alt="image" height="320" width="480"  >
+		
+           <div id="img"></div>
+
+            <script type="text/javascript">
+                var content = localStorage.getItem("value");
+            
+                document.getElementById('img').innerHTML = 
+                            '<img id="photo" src="'+content+'"/  >';
+            </script>
+            <img src="return.png"  width="60px" id="return" onclick="window.location.href='index.html'"></button>
+            <img src="filter.png" width="35px" id="filter" onclick="draw()">
+            <script type="text/javascript">
+                function draw () {
+                    Caman('#photo', function () {
+                    // We can call any filter before the layer
+                    this.exposure(-10);
+
+                    // Create the layer
+                    this.newLayer(function () {
+                    // Change the blending mode
+                    this.setBlendingMode("multiply");
+
+                    // Change the opacity of this layer
+                    this.opacity(80);
+
+                    // Now we can *either* fill this layer with a
+                    // solid color...
+                    this.fillColor('#6899ba');
+
+                    // ... or we can copy the contents of the parent
+                    // layer to this one.
+                    this.copyParent();
+
+                    // Now, we can call any filter function though the
+                    // filter object.
+                    this.filter.brightness(10);
+                    this.filter.contrast(20);
+                        });
+
+                    // And we can call more filters after the layer
+                    this.clip(10);
+                    this.render();
+                    });
+                }
+                
+            </script>
+        </div>
+    </body>
+    </html>
