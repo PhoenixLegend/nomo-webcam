@@ -1,8 +1,8 @@
 
 
-# nomo-webcam
+# nomo-webcam📸
 
-## Intro
+## Intro👓
 
 This is a web-based camera application using Javascript/CSS/HTML and webcam.min.js API.
 
@@ -16,7 +16,7 @@ With a built in filter "**LOMO**" using caman.full.min.js API, the filtered imag
 
 <div align=center><img src="demo2.png"/></div>
 
-## Raspberry Pi 3 Model B+
+## Raspberry Pi 3 Model B+🕶
 
 This project is also working in Raspberry 3.5 inch LCD screen.
 
