@@ -8,7 +8,7 @@ This is a web-based camera application using Javascript/CSS/HTML and webcam.min.
 
 Trying to mimic a very well-known application "**NOMO**" both in android and IOS platform.
 
-<center>![](demo1.png)</center>
+<div align=center><img src="demo1.png"/></div>
 
 <p align="center">Camera 135B</p>
 
