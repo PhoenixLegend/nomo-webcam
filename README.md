@@ -14,7 +14,7 @@ Trying to mimic a very well-known application "**NOMO**" both in android and IOS
 
 With a built in filter "**LOMO**" using caman.full.min.js API, the filtered image will show in the next page by clicking the Thumbnail right-bottom.
 
-![](demo2.png)
+<div align=center><img src="demo2.png"/></div>
 
 ## Raspberry Pi 3 Model B+
 
