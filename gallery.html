@@ -24,33 +24,24 @@
                 function draw () {
                     Caman('#photo', function () {
                     // We can call any filter before the layer
-                    this.exposure(-10);
-
-                    // Create the layer
-                    this.newLayer(function () {
-                    // Change the blending mode
-                    this.setBlendingMode("multiply");
-
-                    // Change the opacity of this layer
-                    this.opacity(80);
-
-                    // Now we can *either* fill this layer with a
-                    // solid color...
-                    this.fillColor('#6899ba');
-
-                    // ... or we can copy the contents of the parent
-                    // layer to this one.
-                    this.copyParent();
-
-                    // Now, we can call any filter function though the
-                    // filter object.
-                    this.filter.brightness(10);
-                    this.filter.contrast(20);
-                        });
-
-                    // And we can call more filters after the layer
-                    this.clip(10);
-                    this.render();
+                    //this.resize({
+                       // width: 500,
+                      // height: 300});
+                         this.brightness(20).render();
+                         this.contrast(40).render();
+                      //   this.gamma(1.4).render();
+                      //   this.saturation(-15).render();
+                      //   this.hue(90).render();
+                      //   this.vibrance(-50).render();
+                      //   this.exposure(-15).render();
+                      //   this.sepia(42).render();
+                      //   this.sharpen(8).render();
+                      //   this.channels({
+                      //   red: 6,
+                      //   green: -9,
+                      //   blue: 7
+                      // }).render();
+                    this.lomo().render();
                     });
                 }
                 

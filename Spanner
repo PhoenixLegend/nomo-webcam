@@ -1,0 +1,30 @@
+第一部分简介：
+Spanner 是一个可扩展的、全球分布式的数据库，是在谷歌公司设计、开发和部署的。
+
+Spanner 已经从一个类似 BigTable 的单一版本的键值存储，演化成为一个具有时间属性的多版本的数据库。数据被存储到模式化的、半关系的表中，数据被版本化，每个版本都会自动以提交时间作为时间戳，旧版本的数据会更容易被垃圾回收。应用可以读取旧版本的数据。Spanner 支持通用的事务，提供了基于 SQL 的查询语言。
+
+特性1控制用户读取数据的延迟/2控制写操作的延迟/3控制可用性和读操作性能
+读和写操作的外部一致性/在一个时间戳下面的跨越数据库的全球一致性的读操作（时间戳反映了事务序列化的顺序）
+
+
+实现这种特性的关键技术就是一个新的 TrueTime API 及其实现，借助于现代时钟参考值(比如 GPS 和原子钟)。
+
+第 2 部分描述了 Spanner 实现的结构、特性集和工程方面的决策：
+
+一个 Spanner 部署称为一个 universe
+Spanner 被组织成许多个 zone 的集合， zone 是管理部署的基本单元。
+
+Zonemaster 把数据分配给 spanserver，spanserver 把数据提供给客户端。客户端使用每个 zone 上面的 location proxy 来定位可以为自己提供数据的 spanserver
+
+
+sql -> nosql -> trade horizontal scalability to consistensy  -> not trade (spanner)
+ 
+对表 -> truetime
+
+
+第 3 部分介绍我们的新的 TrueTime API，并且描述了它的实现：
+
+第 4 部分描述了 Spanner 如何使用 TrueTime 来实现外部一致性的分布式事务、不用锁机制的只读事务和原子模式更新：
+
+
+
