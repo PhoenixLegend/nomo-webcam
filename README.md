@@ -8,13 +8,13 @@ This is a web-based camera application using Javascript/CSS/HTML and webcam.min.
 
 Trying to mimic a very well-known application "**NOMO**" both in android and IOS platform.
 
-![filter](readme\filter.png)
+![](demo1.png)
 
 <p align="center">Camera 135B</p>
 
 With a built in filter "**LOMO**" using caman.full.min.js API, the filtered image will show in the next page by clicking the Thumbnail right-bottom.
 
-![bg](nomo-design\readme\bg.png)
+![]()
 
 ## Raspberry Pi 3 Model B+
 
