@@ -41,4 +41,4 @@ There's an officially supported V4L2 camera module for the RPI camera (not the s
 ```shell
 sudo modprobe bcm2835-v4l2
 ```
-
+ 
