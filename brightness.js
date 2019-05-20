@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>test</title>
-	
-</head>
-<body >
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
-<script>
 function getImageBrightness(imageSrc, callback) {
   var img = document.createElement('img'),
     colorSum = 0,
@@ -54,12 +44,6 @@ function getImageBrightness(imageSrc, callback) {
   };
 }
 
-getImageBrightness('brightness_test/standerd.png', function (brightness) {
+getImageBrightness('url', function (brightness) {
   console.log(brightness);
 });
-</script>
-
-
-
-</body>
-</html>

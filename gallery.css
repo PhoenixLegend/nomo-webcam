@@ -63,3 +63,29 @@
     left: 40px;
     transform: scale(0.9);
 }
+
+.btn-group{
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+.btn-group button {
+    
+    background-color: #383838; /* Green background */
+    border: 1px solid #383838; /* Green border */
+    color: rgb(158, 157, 148); /* White text */
+    /*padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50px; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+    height: 50px;
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #1f1a0f;
+  }

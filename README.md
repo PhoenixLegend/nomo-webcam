@@ -1,22 +1,22 @@
 
 
-# nomo-webcam📸
+# nomo-webcam
 
-## Intro👓
+## Intro
 
 This is a web-based camera application using Javascript/CSS/HTML and webcam.min.js API.
 
 Trying to mimic a very well-known application "**NOMO**" both in android and IOS platform.
 
-<div align=center><img src="demo1.png"/></div>
+![filter](C:\Users\陈敬谊\Desktop\nomo-design\readme\filter.png)
 
 <p align="center">Camera 135B</p>
 
 With a built in filter "**LOMO**" using caman.full.min.js API, the filtered image will show in the next page by clicking the Thumbnail right-bottom.
 
-<div align=center><img src="demo2.png"/></div>
+![bg](C:\Users\陈敬谊\Desktop\nomo-design\readme\bg.png)
 
-## Raspberry Pi 3 Model B+🕶
+## Raspberry Pi 3 Model B+
 
 This project is also working in Raspberry 3.5 inch LCD screen.
 

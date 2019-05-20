@@ -14,21 +14,69 @@
 
             <script type="text/javascript">
                 var content = localStorage.getItem("value");
-            
+                
                 document.getElementById('img').innerHTML = 
                             '<img id="photo" src="'+content+'"/  >';
+                
+                function getImageBrightness(imageSrc,callback) {
+                    var img = document.createElement('img'),
+                        colorSum = 0,
+                        i = 0,
+                        len,
+                        canvas,
+                        ctx,
+                        imageData,
+                        data,
+                        brightness,
+                        r,
+                        g,
+                        b,
+                        avg;
+
+                    img.src = imageSrc;
+                    img.style.display = 'none';
+
+                    document.body.appendChild(img);
+
+                    img.onload = function () {
+                        canvas = document.createElement('canvas');
+                        canvas.width = this.width;
+                        canvas.height = this.height;
+
+                        ctx = canvas.getContext('2d');
+                        ctx.drawImage(this, 0, 0);
+
+                        imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        data = imageData.data;
+
+                        for (i, len = data.length; i < len; i += 4) {
+                        r = data[i];
+                        g = data[i + 1];
+                        b = data[i + 2];
+
+                        avg = Math.floor((r + g + b) / 3);
+                        colorSum += avg;
+                        }
+
+                        brightness = Math.floor(colorSum / (this.width * this.height));
+                        callback(brightness);
+                        
+                    };    
+                    }
+                     
+                 
+                    
+                  
             </script>
             <img src="return.png"  width="60px" id="return" onclick="window.location.href='index.html'"></button>
-            <img src="filter.png" width="35px" id="filter" onclick="draw()">
+            <img src="filter.png" width="35px" id="filter" onclick="reset()">
             <script type="text/javascript">
-                function draw () {
+                function reset () {
                     Caman('#photo', function () {
                     // We can call any filter before the layer
                     //this.resize({
                        // width: 500,
                       // height: 300});
-                         this.brightness(20).render();
-                         this.contrast(40).render();
                       //   this.gamma(1.4).render();
                       //   this.saturation(-15).render();
                       //   this.hue(90).render();
@@ -41,11 +89,131 @@
                       //   green: -9,
                       //   blue: 7
                       // }).render();
-                    this.lomo().render();
+                    this.revert();
+                    this.render();
                     });
+                    }
+            
+                function draw_LOMO(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                        Caman('#photo', function () {
+        
+                        this.revert();
+                        this.lomo().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+                   
+                }
+
+                function draw_Orange(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.orangePeel().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+                   
+                }
+                function draw_Hemingway(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.hemingway().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+                
+                }
+                function draw_Light(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.hazyDays().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+             
+                }
+                function draw_Sin(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.sinCity().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+                
                 }
                 
             </script>
+            <div class="btn-group">
+            <button onclick="draw_LOMO()">LOMO</button>
+            <button onclick="draw_Orange()">Orange</button>
+            <button onclick="draw_Hemingway()">Hemin</button>
+            <button onclick="draw_Light()">Light</button>
+            <button onclick="draw_Sin()">Sin</button>
+            </div>
         </div>
     </body>
     </html>
