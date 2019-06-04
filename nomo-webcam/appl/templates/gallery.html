@@ -1,0 +1,232 @@
+<html>
+    <head>
+    <title>nomo-webcam</title>
+    <link rel="stylesheet" href="../static/gallery.css">
+    </head>
+    <body>
+        <script type="text/javascript" src="../static/webcam.min.js"></script>
+        <script type="text/javascript" src="../static/caman.full.min.js"></script>
+    
+        <div class="bg">
+           <img src="../static/bg.jpg" id = "bg"alt="image" height="320" width="480"  >
+		
+           <div id="img"></div>
+
+            <script type="text/javascript">
+                var content = localStorage.getItem("value");
+                
+                document.getElementById('img').innerHTML = 
+                            '<img id="photo" src="'+content+'"/  >';
+                
+                function getImageBrightness(imageSrc,callback) {
+                    var img = document.createElement('img'),
+                        colorSum = 0,
+                        i = 0,
+                        len,
+                        canvas,
+                        ctx,
+                        imageData,
+                        data,
+                        brightness,
+                        r,
+                        g,
+                        b,
+                        avg;
+
+                    img.src = imageSrc;
+                    img.style.display = 'none';
+
+                    document.body.appendChild(img);
+
+                    img.onload = function () {
+                        canvas = document.createElement('canvas');
+                        canvas.width = this.width;
+                        canvas.height = this.height;
+
+                        ctx = canvas.getContext('2d');
+                        ctx.drawImage(this, 0, 0);
+
+                        imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        data = imageData.data;
+
+                        for (i, len = data.length; i < len; i += 4) {
+                        r = data[i];
+                        g = data[i + 1];
+                        b = data[i + 2];
+
+                        avg = Math.floor((r + g + b) / 3);
+                        colorSum += avg;
+                        }
+
+                        brightness = Math.floor(colorSum / (this.width * this.height));
+                        callback(brightness);
+                        
+                    };    
+                    }
+                     
+                 
+                    
+                  
+            </script>
+            <img src="../static/return.png"  width="60px" id="return" onclick="window.location.href='/'"></button>
+            
+            <div class="uploader">
+            <form action="" method=post enctype=multipart/form-data>
+                
+                <img src="../static/filter.png" width="30px" id="my-img" onclick="document.getElementById('img-upload').click()">          
+                <input type=file name=file multiple="multiple" id="img-upload" style="display: none"><br>
+                <input type="image" src="../static/DXbutton.png" alt="Submit" width="30" value=Upload >
+            </form>
+            </div>
+            <img src="../static/DXreturn.png" onclick="returnDX()" width="50" id="DXreturn">
+            <!--
+               <img src="../static/filter.png" width="35px" id="filter"  onclick="reset()">-->
+            <script type="text/javascript">
+                function returnDX(){
+                    document.getElementById('img').innerHTML = 
+                            '<img id ="photo" src="http://127.0.0.1:5000/show_2"/ height="190" width="250" >';
+                }
+
+                function reset () {
+                    Caman('#photo', function () {
+                    // We can call any filter before the layer
+                    //this.resize({
+                       // width: 500,
+                      // height: 300});
+                      //   this.gamma(1.4).render();
+                      //   this.saturation(-15).render();
+                      //   this.hue(90).render();
+                      //   this.vibrance(-50).render();
+                      //   this.exposure(-15).render();
+                      //   this.sepia(42).render();
+                      //   this.sharpen(8).render();
+                      //   this.channels({
+                      //   red: 6,
+                      //   green: -9,
+                      //   blue: 7
+                      // }).render();
+                    //this.revert();
+                    //this.render();
+                    });
+                    }
+            
+                function draw_LOMO(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                        Caman('#photo', function () {
+                        this.revert();
+                        //this.lomo().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        });
+                    });     
+                               
+                }
+
+                function draw_Orange(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.orangePeel().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+                    
+                }
+                function draw_Hemingway(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.hemingway().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+                
+                }
+                function draw_Light(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.hazyDays().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+             
+                }
+                function draw_Sin(){ 
+                    getImageBrightness(content, function (brightness) {
+                    
+                    var br = 10 - (brightness/255)*20
+
+                    var con = (br/10)*6
+                    console.log(br);
+                    console.log(-con)
+
+                    Caman('#photo', function () {
+      
+                        this.revert();
+                        this.sinCity().render();
+                        
+                        this.brightness(br);
+                        this.contrast(con);
+                        this.render();
+                        });
+
+                    });
+                
+                }
+                
+            </script>
+            <div class="btn-group">
+            <button onclick="draw_LOMO()">LOMO</button>
+            <button onclick="draw_Orange()">Orange</button>
+            <button onclick="draw_Hemingway()">Hemin</button>
+            <button onclick="draw_Light()">Light</button>
+            <button onclick="draw_Sin()">Sin</button>
+            </div>
+        </div>
+    </body>
+    </html>

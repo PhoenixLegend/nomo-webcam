@@ -1,0 +1,105 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+	/*universal seting*/
+}
+
+
+.bg{
+    position: relative;
+    width: 480px;
+    height: 320px;
+}
+
+
+.uploader {
+    position: absolute;
+    bottom: 16%;
+    left:45px;
+}
+
+.head-img{
+text-align: center;}
+
+#img{
+    position: absolute;
+      
+    top: 22%;
+    right: 20%;
+  
+    
+
+    -webkit-animation-name: scaleDraw; /*关键帧名称*/
+    -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+    -webkit-animation-iteration-count: 1;  /*动画播放的次数*/
+    -webkit-animation-duration: 1s; /*动画所花费的时间*/
+}
+@keyframes scaleDraw {  
+            0%{
+                transform: scale(0.1);  
+            }
+          
+            100%{
+                transform: scale(1.0);
+            }
+        }
+
+
+img#DXreturn {
+    position: absolute;
+    top: 25%;
+    left: 35px;
+}
+
+img#DXreturn:hover{
+    position: absolute;
+    top: 25%;
+    left: 35px;
+    transform: scale(0.9);
+}
+        
+
+#return{
+    position: absolute;
+    top: 40%;
+    left: 30px;
+    transition: all 0.3s;
+
+}
+#return:hover{
+    position: absolute;
+    top: 40%;
+    left: 30px;
+    transform: scale(0.9);
+}
+
+
+
+.btn-group{
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+.btn-group button {
+    
+    background-color: #383838; /* Green background */
+    border: 1px solid #383838; /* Green border */
+    color: rgb(158, 157, 148); /* White text */
+    /*padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50px; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+    height: 50px;
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: #1f1a0f;
+  }
+
